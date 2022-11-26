@@ -8,21 +8,14 @@ key: str = os.environ.get("SUPABASE_URL")
 
 supabase: Client = create_client(url, key)
 
-def find_all_data():
-    data = supabase.table("brewery").select("*").execute()
-    return data
-
-
 #Flaskオブジェクトの生成
 app = Flask(__name__)
-
-
 
 #「/index」へアクセスがあった場合に、「index.html」を返す
 @app.route("/")
 def index():
-    hoge = find_all_data()
-    return render_template("index.html",data=hoge)
+    data = supabase.table("brewery").select("*").execute()
+    return render_template("index.html",data=data)
 
 
 #おまじない
