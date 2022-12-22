@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     # data = "hogefuga"
-    data = supabase.table("prefectures").select("*").execute()
+    data = supabase.table("prefectures").select("name").execute()
     return render_template("index.html",data=data)
 
 
