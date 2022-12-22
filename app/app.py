@@ -14,7 +14,8 @@ app = Flask(__name__)
 #「/index」へアクセスがあった場合に、「index.html」を返す
 @app.route("/")
 def index():
-    data = "hogefuga"
+    # data = "hogefuga"
+    data = supabase.table("prefectures").select(*).execute()
     return render_template("index.html",data=data)
 
 
