@@ -1,5 +1,5 @@
 #Flaskとrender_template（HTMLを表示させるための関数）をインポート
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from supabase import create_client,Client
 import os
 
